@@ -3,11 +3,9 @@ package com.example.alexs.memorize
 import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.GridLayout
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_tabuleiro.*
+import java.util.*
 
 class TabuleiroActivity : AppCompatActivity() {
     lateinit var txtRes : TextView
@@ -29,7 +27,8 @@ class TabuleiroActivity : AppCompatActivity() {
     var img2 : String? = null
     var idImg2 : Int? = null
 
-    var letras = listOf("a","b","d","c","b","a","c","d")
+//    var letras = listOf("a","b","d","c","b","a","c","d")
+    var letras = embaralhar()
     var acertos = mutableListOf<String>()
     var imagens = hashMapOf<Int,ImageView>()
 
@@ -70,32 +69,6 @@ class TabuleiroActivity : AppCompatActivity() {
 
         send.setOnClickListener({send(it as Button)})
 
-
-
-//        var i = 1
-//        for(l in letras){
-//
-//            ordem.put(i++,l)
-//        }
-//
-//        for (o in ordem){
-//        println(o)
-//        }
-//        println(imagem1.top)
-//        imagem1.setOnClickListener({click(it as ImageView)})
-//        imagem2.setOnClickListener({click(it as ImageView)})
-//        imagem3.setOnClickListener({click(it as ImageView)})
-//        imagem4.setOnClickListener({click(it as ImageView)})
-//        imagem5.setOnClickListener({click(it as ImageView)})
-//        imagem6.setOnClickListener({click(it as ImageView)})
-//        imagem7.setOnClickListener({click(it as ImageView)})
-//        imagem8.setOnClickListener({click(it as ImageView)})
-
-
-
-//        this.imagem = findViewById(R.id.img1)
-//        imagem.setImageDrawable(getDrawable(R.drawable.login))
-
     }
 
     fun click(view: ImageView, id : Int){
@@ -125,7 +98,7 @@ class TabuleiroActivity : AppCompatActivity() {
     fun send(view: Button){
         if(img2 != null && img1 != null){
             if(img1.equals(img2)){
-                resultado.text = "Acertou, a mizéravi!"
+                resultado.text = "Acertou!!"
                 acertos.add(img1.toString())
                 img1 = null
                 img2 = null
@@ -155,6 +128,12 @@ class TabuleiroActivity : AppCompatActivity() {
             }
         }
         return drow
+    }
+
+    fun embaralhar () : List<String>{
+        var letrasExistentes = listOf("a","b","d","c","b","a","c","d")
+//        Fazer embaralhamento
+        return letrasExistentes
     }
 
 }
