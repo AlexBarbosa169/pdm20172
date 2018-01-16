@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     val MEGA = "https://www.lotodicas.com.br/api/mega-sena"
     val QUINA = "https://www.lotodicas.com.br/api/quina"
-    val LOTOFACIL = "https://www.lotodicas.com.br/api/loto-facil"
+    val LOTOFACIL = "https://www.lotodicas.com.br/api/lotofacil"
     val LOTOMANIA = "https://www.lotodicas.com.br/api/lotomania"
 
 
@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             url = LOTOMANIA
         }else if(view.getTag().equals("lotofacil")){
             url = LOTOFACIL
+            Log.i("UrlLotoFacil","clicou LotoFacil")
         }else{
             url = QUINA
         }
@@ -128,6 +129,7 @@ class MainActivity : AppCompatActivity() {
                 var megaJason : JSONObject = JSONObject(line)
                 var concurso : String = megaJason.getString("numero")
                 var sorteio : JSONArray? = megaJason.getJSONArray("sorteio")
+                Log.i("LotoUrl",url.toString())
                 if(url.contains("mega",ignoreCase = true)){
                     var it = Intent(this@MainActivity,MegaSenaActivity::class.java)
                     it.putExtra("consurso",concurso)
@@ -141,7 +143,7 @@ class MainActivity : AppCompatActivity() {
                     Log.i("opcao","Lotomania")
                     startActivity(it)
                 }else if (url.contains("lotofacil")){
-                    var it = Intent(this@MainActivity,MegaSenaActivity::class.java)
+                    var it = Intent(this@MainActivity,LotoFacilActivity::class.java)
                     it.putExtra("consurso",concurso)
                     it.putExtra("json", megaJason.toString())
                     Log.i("opcao","lotofacil")

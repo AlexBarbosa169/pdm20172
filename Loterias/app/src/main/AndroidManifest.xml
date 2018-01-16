@@ -21,7 +21,8 @@
         <activity android:name=".LotomaniaActivity" />
         <activity android:name=".MegaSenaActivity" />
         <activity android:name=".MeusJogos2Activity" />
-        <activity android:name=".Quina2Activity"></activity>
+        <activity android:name=".Quina2Activity" />
+        <activity android:name=".LotoFacilActivity"></activity>
     </application>
 
 </manifest>
