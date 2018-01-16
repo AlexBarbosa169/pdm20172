@@ -4,20 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.alexs.loterias.MegaSenaActivity">
+    tools:context="com.example.alexs.loterias.Quina2Activity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#32CD32"
-        android:text="MegaSena"
+        android:background="#233fd2"
+        android:text="Quina"
         android:textSize="50dp"
         android:textAlignment="center"
         />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         <TextView
             android:id="@+id/tvConcurso"
             android:layout_width="match_parent"
@@ -44,49 +45,44 @@
         >
         <TextView
             android:id="@+id/tvNum1"
-            android:width="64dp"
+            android:width="77dp"
             android:text="69"
             android:textSize="57sp"
-            android:background="#98FB98"
+            android:background="#98ddfb"
             android:textAlignment="center"
 
             />
         <TextView
             android:id="@+id/tvNum2"
             android:text="69"
-            android:width="64dp"
+            android:width="77dp"
             android:textSize="57sp"
-            android:background="#3CB371"
+            android:textAlignment="center"
+            android:background="#2d78a4"
             />
         <TextView
             android:id="@+id/tvNum3"
             android:text="6"
+            android:background="#98ddfb"
             android:textSize="57sp"
-            android:background="#98FB98"
             android:textAlignment="center"
-            android:width="64dp"
+            android:width="77dp"
             />
         <TextView
             android:id="@+id/tvNum4"
             android:text="69"
             android:textSize="57sp"
-            android:background="#3CB371"
-            android:width="64dp"
+            android:background="#2d78a4"
+            android:textAlignment="center"
+            android:width="77dp"
             />
         <TextView
             android:id="@+id/tvNum5"
             android:text="69"
             android:textSize="57sp"
-            android:background="#98FB98"
+            android:background="#98ddfb"
             android:textAlignment="center"
-            android:width="64dp"
-            />
-        <TextView
-            android:id="@+id/tvNum6"
-            android:text="69"
-            android:textSize="57sp"
-            android:background="#3CB371"
-            android:width="64dp"
+            android:width="77dp"
             />
     </GridLayout>
     <TextView
@@ -214,11 +210,10 @@
             />
     </LinearLayout>
 
-            <Button
-                android:id="@+id/btnMeusJogos"
-                android:text="Meus Jogos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="34sp"/>
-
+    <Button
+        android:id="@+id/btnMeusJogos"
+        android:text="Meus Jogos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="34sp"/>
 </LinearLayout>

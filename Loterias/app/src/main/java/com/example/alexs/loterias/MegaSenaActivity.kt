@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import org.json.JSONObject
 
@@ -23,6 +24,9 @@ class MegaSenaActivity : AppCompatActivity() {
     lateinit var tvPremioSena : TextView
     lateinit var tvPremioQuina : TextView
     lateinit var tvPremioQuadra : TextView
+    lateinit var btnDetalhes : Button
+    lateinit var btnMeusJogos : Button
+    lateinit var itt : Intent
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,10 +46,16 @@ class MegaSenaActivity : AppCompatActivity() {
         tvPremioSena = findViewById(R.id.tvPremioSena)
         tvPremioQuina = findViewById(R.id.tvPremioQuina)
         tvPremioQuadra = findViewById(R.id.tvPremioQuadra)
+        btnMeusJogos = findViewById(R.id.btnMeusJogos)
+
 
 
         var it = intent
         var js = JSONObject(it.getStringExtra("json"))
+
+//        btnDetalhes.setOnClickListener({onclickDetalhes(it)})
+        btnMeusJogos.setOnClickListener({onclickMeusJogos(it,js)})
+
         Log.i("jsteste",js.toString())
 
         tvConcurso.text = js.getString("numero").toString()
@@ -63,32 +73,16 @@ class MegaSenaActivity : AppCompatActivity() {
         tvPremioQuina.text = js.getJSONArray("rateio").get(1).toString()
         tvPremioQuadra.text = js.getJSONArray("rateio").get(2).toString()
 
-
-
-//        Log.i("passadoParaMega", arrayresultado.toString())
-
-//        tviews.add(tvNum1)
-//        tviews.add(tvNum2)
-//        tviews.add(tvNum3)
-//        tviews.add(tvNum4)
-//        tviews.add(tvNum5)
-//        tviews.add(tvNum6)
-//
-//        var i : Int = 1
-//        for(v : TextView in tviews){
-//            v.text = i.toString()
-//            i++
-//        }
-
-//        this.tvNum1.setOnClickListener({onclick(it)})
-//        this.tvNum2.setOnClickListener({onclick(it)})
-//        this.tvNum3.setOnClickListener({onclick(it)})
-//        this.tvNum4.setOnClickListener({onclick(it)})
-//        this.tvNum5.setOnClickListener({onclick(it)})
-//        this.tvNum6.setOnClickListener({onclick(it)})
     }
 
-    fun onclick(view: View){
+    fun onclickDetalhes(view: View){
 
+    }
+
+    fun onclickMeusJogos(view: View, js : JSONObject){
+        Log.i("clique", "Clicou!")
+        var it = Intent(this@MegaSenaActivity,MeusJogos2Activity::class.java)
+        it.putExtra("sorteioAtual",js.getString("numero").toString())
+        startActivity(it)
     }
 }
